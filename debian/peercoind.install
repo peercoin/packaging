@@ -1,0 +1,3 @@
+usr/local/bin/peercoind usr/bin
+usr/local/bin/peercoin-cli usr/bin
+debian/examples/peercoin.conf etc/peercoin

@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+#DEB_MAKE_CHECK_TARGET = test_bitcoin
+#build/bitcoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitcoin)
+
+%:
+	dh --with bash-completion --with systemd $@
+
+override_dh_auto_clean:
+	if [ -f Makefile ]; then $(MAKE) distclean; fi
+	rm -rf Makefile.in aclocal.m4 configure src/Makefile.in src/bitcoin-config.h.in src/build-aux src/qt/Makefile.in src/qt/test/Makefile.in src/test/Makefile.in
+
+override_dh_auto_configure:
+	./autogen.sh
+	./configure --with-gui=qt5 --with-incompatible-bdb
+
+override_dh_auto_test:
+	make check
+
+# No SysV or Upstart init scripts included
+override_dh_installinit:
+	dh_installinit \
+		--noscripts
+
+# Don’t enable service by default
+override_dh_systemd_enable:
+	dh_systemd_enable \
+		--no-enable
+
+# Restart after upgrade
+override_dh_systemd_start:
+	dh_systemd_start \
+		--restart-after-upgrade
