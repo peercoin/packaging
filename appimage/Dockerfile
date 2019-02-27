@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 RUN apt-get update; apt-get upgrade -y
 RUN apt-get install -y autoconf \
@@ -8,6 +8,7 @@ RUN apt-get install -y autoconf \
                        libboost-all-dev \
                        libminiupnpc-dev \
                        libssl-dev \
+                       libtool \
                        pkg-config \
                        qtbase5-dev \
                        qttools5-dev-tools
