@@ -23,7 +23,8 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler,
  python,
- libzmq3-dev
+ libzmq3-dev,
+ dh-systemd
 Standards-Version: 3.9.2
 Homepage: https://www.peercoin.net/
 Vcs-Git: git://github.com/peercoin/peercoin.git
