@@ -41,5 +41,9 @@ PrivateDevices=true
 # Commented out as it's not supported on Debian 8 or Ubuntu 16.04 LTS
 #MemoryDenyWriteExecute=true
 
+# Specify the absolute limit on memory usage of the executed processes in this unit.
+# If memory usage cannot be contained under the limit, out-of-memory killer is invoked inside the unit.
+MemoryMax=2G
+
 [Install]
 WantedBy=multi-user.target
