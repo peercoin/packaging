@@ -1,3 +1,9 @@
+peercoin (0.8.4-1) stable; urgency=low
+
+  * v0.8.4 release.
+
+ -- Peerchemist <peerchemist@protonmail.ch>  Fri, 27 Sep 2019 11:58:20 +0000
+
 peercoin (0.8.3-1) stable; urgency=low
 
   * v0.8.3 release.
