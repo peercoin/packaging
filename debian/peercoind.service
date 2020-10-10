@@ -12,10 +12,14 @@ Description=Peercoin daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/peercoind -daemon -datadir=/var/lib/peercoin -conf=/etc/peercoin/peercoin.conf -pid=/run/peercoin/peercoin.pid
+ExecStart=/usr/bin/peercoind -daemon -datadir=/var/lib/peercoin -conf=/etc/peercoin/peercoin.conf -pid=/run/peercoind/peercoind.pid
+
 # Creates /run/peercoind owned by peercoin
 RuntimeDirectory=peercoind
+
+# Run as peercoin user
 User=peercoin
+
 Type=forking
 PIDFile=/run/peercoind/peercoind.pid
 Restart=on-failure
