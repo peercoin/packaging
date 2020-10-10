@@ -1,3 +1,9 @@
+peercoin (0.9.0-2) stable; urgency=low
+
+  * Set of small fixes.
+
+ -- Peerchemist <peerchemist@protonmail.ch>  Sat, 10 Oct 2020 12:40:20 +0000
+
 peercoin (0.9.0-1) stable; urgency=low
 
   * v0.9.0 release.
