@@ -11,7 +11,7 @@ make
 
 For a tag:
 ```
-make TAG=v0.8.3ppc
+make TAG=v0.9.0ppc
 ```
 
 `Peercoin-x86_64.AppImage` is deposited in the `/build` directory.
