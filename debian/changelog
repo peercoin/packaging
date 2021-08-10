@@ -1,8 +1,9 @@
-peercoin (0.10.3-1) stable; urgency=low
+peercoin (0.10.4-1) stable; urgency=low
 
-  * First release of 0.10 branch.
+  [ upstream ]
+  * new release(s)
 
- -- Peerchemist <peerchemist@protonmail.ch>  Mon, 28 Jun 2021 12:02:11 +0000
+ -- Peerchemist <peerchemist@protonmail.ch>  Tue, 10 Aug 2021 12:02:11 +0000
 
 peercoin (0.9.0-3) stable; urgency=low
 
