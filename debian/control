@@ -2,32 +2,38 @@ Source: peercoin
 Section: utils
 Priority: optional
 Maintainer: Peerchemist <peerchemist@protonmail.ch>
-Build-Depends: debhelper,
- devscripts,
- automake,
- libtool,
+Build-Depends:
  bash-completion,
- libdb++-dev,
+ debhelper-compat (= 10),
+ dh-exec,
+ lcov,
+ libboost-chrono-dev,
+ libboost-filesystem-dev,
+ libboost-system-dev,
+ libboost-test-dev,
+ libboost-thread-dev,
  libssl-dev,
- pkg-config,
+ libdb++-dev,
  libevent-dev,
- libboost-system-dev (>> 1.47),
- libboost-filesystem-dev (>> 1.47),
- libboost-program-options-dev (>> 1.47),
- libboost-thread-dev (>> 1.47),
- libboost-test-dev (>> 1.47),
- libboost-chrono-dev (>> 1.47),
+ libleveldb-dev,
  libminiupnpc-dev,
- qttools5-dev-tools, qttools5-dev,
+ libprotobuf-dev,
  libqrencode-dev,
- libprotobuf-dev, protobuf-compiler,
- python,
+ libsecp256k1-dev,
+ libssl-dev,
+ libunivalue-dev (>= 1.0.4),
  libzmq3-dev,
- dh-systemd
+ pkg-config,
+ protobuf-compiler,
+ python3,
+ qt5-qmake,
+ qtbase5-dev,
+ qttools5-dev-tools,
 Standards-Version: 3.9.2
 Homepage: https://www.peercoin.net/
 Vcs-Git: git://github.com/peercoin/peercoin.git
 Vcs-Browser: https://github.com/peercoin/peercoin
+Rules-Requires-Root: no
 
 Package: peercoind
 Architecture: any
@@ -53,7 +59,7 @@ Description: peer-to-peer network based digital currency - Qt GUI
 Package: peercoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: peer-to-peer digital currency - standalone transaction tool
+Description: Peer-to-peer digital currency - standalone transaction tool
  Peercoin is a crypto-currency project forked from Bitcoin with aim to achieve
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
