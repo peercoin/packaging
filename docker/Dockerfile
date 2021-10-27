@@ -16,7 +16,6 @@ RUN useradd -r peercoin \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG TARGETPLATFORM
 ENV PEERCOIN_DATA=/home/peercoin/.peercoin
 ENV PATH=/opt/peercoin/bin:$PATH
 
