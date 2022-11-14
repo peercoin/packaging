@@ -10,20 +10,22 @@ RUN set -ex \
 
 FROM ubuntu:focal
 
-RUN useradd -r peercoin \
-  && apt-get update -y \
-  && apt-get install -y curl gnupg gosu \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN useradd -r peercoin
 
-ENV PEERCOIN_DATA=/home/peercoin/.peercoin
-ENV PATH=/opt/peercoin/bin:$PATH
+RUN apt-get update && apt-get install -y \
+    gosu \
+ && rm -rf /var/lib/apt/lists/*
+
+ENV PPC_DATA=/data
+ENV PEERCOIN_PREFIX=/opt/peercoin
+ENV PATH=${PEERCOIN_PREFIX}/bin:$PATH
+ENV RPC_PASSWORD=ppcpass
+ENV RPC_USER=ppcuser
 
 COPY --from=build /opt /opt
-
 COPY docker-entrypoint.sh /entrypoint.sh
 
-VOLUME ["/home/peercoin/.peercoin"]
+VOLUME ["${PPC_DATA}"]
 
 EXPOSE 9901 9902 9903 9904
 
