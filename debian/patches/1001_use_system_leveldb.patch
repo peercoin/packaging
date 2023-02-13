@@ -1,0 +1,58 @@
+Description: use system libleveldb-dev instead of a bundled one.
+ Patch derived from Debian litecoin package, extended to be
+ autoconfigurable.
+Author: Dmitry Smirnov <onlyjob@member.fsf.org>
+Author: Jonas Smedegaard <dr@jones.dk>
+License: GPL-2+
+Last-Update: 2017-07-09
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/dbwrapper.cpp
++++ b/src/dbwrapper.cpp
+@@ -10,7 +10,11 @@
+ #include <leveldb/cache.h>
+ #include <leveldb/env.h>
+ #include <leveldb/filter_policy.h>
++#ifdef EMBEDDED_LEVELDB
+ #include <memenv.h>
++#else
++#include <leveldb/helpers/memenv.h>
++#endif
+ #include <stdint.h>
+ #include <algorithm>
+ 
+--- a/configure.ac
++++ b/configure.ac
+@@ -1234,10 +1234,29 @@
+ 
+ AC_DEFINE([HAVE_SYSTEM], [HAVE_STD__SYSTEM || HAVE_WSYSTEM], [std::system or ::wsystem])
+ 
++dnl leveldb check
++if test x$system_leveldb != xno ; then
++  found_leveldb=no
++  AC_CHECK_HEADERS([leveldb/cache.h leveldb/env.h leveldb/filter_policy.h leveldb/db.h leveldb/write_batch.h leveldb/helpers/memenv.h],[
++    AC_CHECK_LIB([leveldb],  [main],[
++      found_leveldb=yes
++    ],[true])
++  ],[true])
++
++  if test x$found_leveldb = xyes ; then
++    system_leveldb=yes
++    LIBLEVELDB=-lleveldb
++    LIBMEMENV=${libdir}/libmemenv.a
++  elif test x$system_leveldb = xyes ; then
++    AC_MSG_ERROR([leveldb not found])
++  else
++    system_leveldb=no
++    LIBLEVELDB=
++    LIBMEMENV=
++  fi
++fi
+ LEVELDB_CPPFLAGS=
+-LIBLEVELDB=
+-LIBMEMENV=
+-AM_CONDITIONAL([EMBEDDED_LEVELDB],[true])
++AM_CONDITIONAL([EMBEDDED_LEVELDB],[test x$system_leveldb = xno])
+ AC_SUBST(LEVELDB_CPPFLAGS)
+ AC_SUBST(LIBLEVELDB)
+ AC_SUBST(LIBMEMENV)
