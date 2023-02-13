@@ -1,1 +1,3 @@
-usr/local/bin/peercoin-tx usr/bin
+usr/bin/peercoin-tx
+usr/bin/peercoin-util
+usr/bin/peercoin-wallet

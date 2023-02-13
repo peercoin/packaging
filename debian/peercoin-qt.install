@@ -1,4 +1,5 @@
-usr/local/bin/peercoin-qt usr/bin
+#! /usr/bin/dh-exec
+usr/bin/peercoin-qt
 share/pixmaps/peercoin32.png usr/share/pixmaps
 share/pixmaps/peercoin128.png usr/share/pixmaps
 share/pixmaps/peercoin256.png usr/share/pixmaps
