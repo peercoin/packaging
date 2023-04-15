@@ -1,3 +1,9 @@
+peercoin (0.12.3-2) stable; urgency=low
+
+  * fix peercoin.desktop integration files
+
+ -- Peerchemist <peerchemist@protonmail.ch>  Sat, 15 Apr 2023 11:51:22 +0000
+
 peercoin (0.12.3-1) stable; urgency=low
 
   [ upstream ]
