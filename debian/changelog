@@ -1,3 +1,9 @@
+peercoin (0.14.3-2) stable; urgency=low
+
+  * Use raspbian deboostrap for amrhf.
+
+ -- Peerchemist <peerchemist@protonmail.ch>  Fri, 17 May 2024 11:51:22 +0000
+
 peercoin (0.14.3-1) stable; urgency=low
 
   [ upstream ]
