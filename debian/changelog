@@ -1,3 +1,10 @@
+peercoin (0.14.9-1) stable; urgency=low
+
+  [ upstream ]
+  * new release
+
+ -- Peerchemist <peerchemist@protonmail.ch>  Tue, 06 Aug 2024 11:51:22 +0000
+
 peercoin (0.14.7-1) stable; urgency=low
 
   [ upstream ]
